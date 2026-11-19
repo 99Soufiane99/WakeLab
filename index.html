@@ -21,19 +21,7 @@
                     Nom utilisateur
                 </span>
 
-                <button
-                    id="btn-name"
-                    type="button"
-                    class="border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100"
-                >
-                    Modifier nom
-                </button>
-
-                <button
-                    id="btn-add"
-                    type="button"
-                    class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800"
-                >
+                <button id="btn-add" type="button" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800">
                     Nouvelle activite
                 </button>
 
@@ -42,5 +30,56 @@
         </div>
 
     </header>
+    <main class="max-w-6xl mx-auto p-5">
+
+        <section class="mb-8">
+
+            <h2 class="text-2xl font-bold mb-2">
+                Reveillez vos connaissances
+            </h2>
+
+            <p class="text-gray-600">
+                Decouvrez et partagez des activites.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="flex flex-wrap gap-3 mb-6">
+
+            <input type="text" id="search" placeholder="Rechercher une activité..." class="flex-1 min-w-48 border bg-white p-3 rounded-lg outline-none focus:ring-2 focus:ring-gray-300">
+
+            <select id="filter-theme" class="border bg-white p-3 rounded-lg outline-none">
+
+                <option value="">Tous les themes</option>
+                <option value="jeu">Jeu</option>
+                <option value="apprentissage">Apprentissage</option>
+                <option value="exercice">Exercice</option>
+                <option value="autre">Autre</option>
+
+            </select>
+
+        </section>
+
+        <section class="flex flex-wrap items-center justify-between gap-3 mb-4">
+
+            <h2 class="text-xl font-bold">
+                Liste des activites
+            </h2>
+
+            <span id="activities-count" class="text-gray-500">
+                0 activite
+            </span>
+
+        </section>
+        <!-- ACTIVITIES-CONTAINER -->
+        <section id="activities-container" class="flex flex-wrap gap-5">
+            
+        </section>
+        <p id="message" class="text-center text-gray-500 mt-6">
+            Aucune activite pour le moment.
+        </p>
+    </main>
 </body>
 </html>
