@@ -186,26 +186,106 @@ async function recupererActivites() {
     return response.data;
 }
 
-function creerCarte(activite) {
+
+function creatcartactivite(activite) {
 
     const carte = document.createElement("div");
-    carte.className = "bg-white rounded-xl shadow p-5 border";
+    carte.className = "w-full bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex flex-col gap-4 hover:shadow-md transition";
 
+    // Header
+    const header = document.createElement("div");
+    header.className = "flex items-center justify-between";
+
+    const theme = document.createElement("span");
+    theme.className = "bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium";
+    theme.textContent = activite.theme;
+
+    const duree = document.createElement("span");
+    duree.className = "text-gray-500 text-sm";
+    duree.textContent = activite.duree + " minutes";
+
+    header.append(theme, duree);
+
+
+    // Informations
     const titre = document.createElement("h3");
+    titre.className = "text-xl font-bold text-gray-800";
     titre.textContent = activite.titre;
 
     const description = document.createElement("p");
+    description.className = "text-gray-600 text-sm leading-relaxed";
     description.textContent = activite.description;
 
-    carte.append(titre, description);
+
+    // Objectifs
+    const objectifs = document.createElement("div");
+    objectifs.className = "bg-gray-50 rounded-lg p-3";
+
+    const titreObjectif = document.createElement("h4");
+    titreObjectif.className = "text-sm font-semibold text-gray-800 mb-1";
+    titreObjectif.textContent = "Objectifs pédagogiques";
+
+    const texteObjectif = document.createElement("p");
+    texteObjectif.className = "text-sm text-gray-600";
+    texteObjectif.textContent = activite.objectifs || "Aucun objectif";
+
+    objectifs.append(titreObjectif, texteObjectif);
+
+
+    // Auteur et ID
+    const informations = document.createElement("div");
+    informations.className = "flex items-center justify-between border-t pt-3 text-sm text-gray-500";
+
+    const auteur = document.createElement("span");
+    auteur.textContent = "Par : " + activite.auteur;
+
+    const id = document.createElement("span");
+    id.textContent = "ID : " + activite.id;
+
+    informations.append(auteur, id);
+
+
+    // Boutons
+    const footer = document.createElement("div");
+    footer.className = "flex justify-end gap-2";
+
+    const btnModifier = document.createElement("button");
+    btnModifier.className = "bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200";
+    btnModifier.textContent = "Modifier";
+
+    const btnSupprimer = document.createElement("button");
+    btnSupprimer.className = "bg-red-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-red-700";
+    btnSupprimer.textContent = "Supprimer";
+
+    footer.append(btnModifier, btnSupprimer);
+
+
+    // Assembler la carte
+    carte.append(header, titre, description, objectifs, informations, footer);
 
     return carte;
 }
 
+
+
+function afficherActivites(activites) {
+
+    activitiescontainer.replaceChildren();
+
+    activites.forEach(activite => {
+
+        const carte = creatcartactivite(activite);
+
+        activitiescontainer.append(carte);
+
+    });
+
+}
+
 const data = await recupererActivites();
 
-console.log(data);
-
+afficherActivites(data)
+console.log(data)
 
 
 
