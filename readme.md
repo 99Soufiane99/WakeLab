@@ -10,6 +10,12 @@ WakeLab est une application web qui permet de découvrir et de partager des acti
 - Axios
 - API REST
 
+## Backend
+
+Le backend est développé avec Next.js et utilise SQLite pour stocker les activités.
+
+Repository : [WakeLab Backend](https://github.com/99Soufiane99/WakeLab-backend)
+
 ## Fonctionnalités
 
 - Afficher les activités.
