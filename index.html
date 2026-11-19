@@ -81,5 +81,89 @@
             Aucune activite pour le moment.
         </p>
     </main>
+        <!-- POPUP-SERNAME -->
+    <div id="popup-div" class="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
+
+        <div class="bg-white w-full max-w-sm rounded-xl p-5 shadow-lg">
+
+            <div class="flex items-center justify-between mb-4">
+
+                <h3 class="text-lg font-bold">
+                    Entrer votre nom
+                </h3>
+
+                <button id="close-popup" type="button" class="text-gray-500 text-2xl hover:text-black">
+                    &times;
+                </button>
+
+            </div>
+
+            <input type="text" id="nom-popup" placeholder="Votre nom..." class="w-full border rounded-lg p-3 mb-4 outline-none focus:ring-2 focus:ring-gray-300">
+
+            <button id="ajouter-nom" type="button" class="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800">
+                Ajouter
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- POPUP-ACTIVITY -->
+    <div id="popup-activity" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center p-4" >
+
+        <div class="bg-white w-full max-w-md rounded-xl p-5 shadow-lg">
+
+            <div class="flex items-center justify-between mb-5">
+
+                <h3 class="text-lg font-bold">
+                    Nouvelle activite
+                </h3>
+
+                <button id="close-activity-popup" type="button" class="text-gray-500 text-2xl hover:text-black" >
+                    &times;
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+            <form id="form-activity" class="flex flex-col gap-3">
+
+                <input type="text" id="titre" placeholder="Titre de l'activité" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-gray-300" >
+
+                <select id="theme" class="w-full border rounded-lg p-3 outline-none" >
+
+                    <option value="">Choisir un theme</option>
+                    <option value="jeu">Jeu</option>
+                    <option value="apprentissage">Apprentissage</option>
+                    <option value="exercice">Exercice</option>
+                    <option value="autre">Autre</option>
+
+                </select>
+
+
+                <input type="number" id="duree" placeholder="Durée en minutes" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-gray-300" >
+
+
+                <textarea id="description" placeholder="Description de l'activité..." rows="3" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-gray-300" >
+
+                </textarea>
+
+
+                <textarea id="objectifs" placeholder="Objectifs pédagogiques (facultatif)" rows="3" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-gray-300"></textarea>
+
+
+                <button type="submit" class="w-full bg-gray-700 text-white py-3 rounded-lg hover:bg-gray-800">
+                    Ajouter
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script type="module" src="./app.js"></script>
+
 </body>
 </html>
